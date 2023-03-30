@@ -13,6 +13,24 @@
     "enablePullDownRefresh": true,
     "onReachBottomDistance": 50
   },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/home/home",
+      "text": "抢单",
+      "iconPath": "./static/icon/truck_icon.png",
+      "selectedIconPath": "./static/icon/truck_icon.png"
+    },{
+      "pagePath": "pages/index/index",
+      "text": "二维码",
+      "iconPath": "./static/icon/qr_code_icon.png",
+      "selectedIconPath": "./static/icon/qr_code_icon.png"
+    },{
+      "pagePath": "pages/logs/logs",
+      "text": "我的",
+      "iconPath": "./static/icon/list_icon.png",
+      "selectedIconPath": "./static/icon/list_icon.png"
+    }]
+  },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"

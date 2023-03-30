@@ -17,188 +17,39 @@
 <view>
   {{info}}
 </view> -->
+{{msg}}
 <view class='mainContainer'>
-  <view class="container">
-  <view class="table">
-    <view class="tr">
-      <view class="th">
-        目的地
+  <view class="container" wx:for="{{coalMessage}}" wx:key="coal_id">
+    <view class="table">
+      <view class="tr">
+        <view class="th">
+          目的地
+        </view>
+        <view class="th">
+          煤种
+        </view>
+        <view class="th">
+          需要数量
+        </view>
+        <view class="th">
+          运费
+        </view>
       </view>
-      <view class="th">
-        需要数量
-      </view>
-      <view class="th">
-        运费
+      <view class="tr">
+        <view class="td">
+          {{item.destination}}
+        </view>
+        <view class="td">
+          {{item.coal_var}}
+        </view>
+        <view class="td">
+          {{item.requirement}}
+        </view>
+        <view class="td">
+          {{item.cost}}
+        </view>
       </view>
     </view>
-    <view class="tr">
-      <view class="td">
-        新华太
-      </view>
-      <view class="td">
-        20
-      </view>
-      <view class="td">
-        45补100
-      </view>
-    </view>
-  </view>
-    <!-- <text>目的地：新华太</text>
-    <text>需要：20车</text>
-    <text>运费：45补100</text> -->
     <button class="btn" plain>立即抢单</button>
-  </view>
-  <view class="container">
-  <view class="table">
-    <view class="tr">
-      <view class="th">
-        目的地
-      </view>
-      <view class="th">
-        需要数量
-      </view>
-      <view class="th">
-        运费
-      </view>
-    </view>
-    <view class="tr">
-      <view class="td">
-        新华太
-      </view>
-      <view class="td">
-        20
-      </view>
-      <view class="td">
-        45补100
-      </view>
-    </view>
-  </view>
-    <!-- <text>目的地：新华太</text>
-    <text>需要：20车</text>
-    <text>运费：45补100</text> -->
-    <button class="btn" plain>立即抢单</button>
-  </view>
-  <view class="container">
-  <view class="table">
-    <view class="tr">
-      <view class="th">
-        目的地
-      </view>
-      <view class="th">
-        需要数量
-      </view>
-      <view class="th">
-        运费
-      </view>
-    </view>
-    <view class="tr">
-      <view class="td">
-        新华太
-      </view>
-      <view class="td">
-        20
-      </view>
-      <view class="td">
-        45补100
-      </view>
-    </view>
-  </view>
-    <!-- <text>目的地：新华太</text>
-    <text>需要：20车</text>
-    <text>运费：45补100</text> -->
-    <button class="btn" plain>立即抢单</button>
-  </view>
-  <view class="container">
-  <view class="table">
-    <view class="tr">
-      <view class="th">
-        目的地
-      </view>
-      <view class="th">
-        需要数量
-      </view>
-      <view class="th">
-        运费
-      </view>
-    </view>
-    <view class="tr">
-      <view class="td">
-        新华太
-      </view>
-      <view class="td">
-        20
-      </view>
-      <view class="td">
-        45补100
-      </view>
-    </view>
-  </view>
-    <!-- <text>目的地：新华太</text>
-    <text>需要：20车</text>
-    <text>运费：45补100</text> -->
-    <button class="btn" plain>立即抢单</button>
-  </view>
-  <view class="container">
-  <view class="table">
-    <view class="tr">
-      <view class="th">
-        目的地
-      </view>
-      <view class="th">
-        需要数量
-      </view>
-      <view class="th">
-        运费
-      </view>
-    </view>
-    <view class="tr">
-      <view class="td">
-        新华太
-      </view>
-      <view class="td">
-        20
-      </view>
-      <view class="td">
-        45补100
-      </view>
-    </view>
-  </view>
-    <!-- <text>目的地：新华太</text>
-    <text>需要：20车</text>
-    <text>运费：45补100</text> -->
-    <button class="btn" plain>立即抢单</button>
-  </view>
-  <view class="container">
-  <view class="table">
-    <view class="tr">
-      <view class="th">
-        目的地
-      </view>
-      <view class="th">
-        需要数量
-      </view>
-      <view class="th">
-        运费
-      </view>
-    </view>
-    <view class="tr">
-      <view class="td">
-        新华太
-      </view>
-      <view class="td">
-        20
-      </view>
-      <view class="td">
-        45补100
-      </view>
-    </view>
-  </view>
-    <!-- <text>目的地：新华太</text>
-    <text>需要：20车</text>
-    <text>运费：45补100</text> -->
-    <button class="btn" plain>立即抢单</button>
-  </view>
-  <view class="container">
-    
   </view>
 </view>
