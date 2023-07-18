@@ -1,0 +1,62 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 20rpx;
+}
+
+.heading {
+  font-size: 48rpx;
+  color: #000000;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.subheading {
+  font-size: 32rpx;
+  color: #333333;
+  margin-bottom: 30rpx;
+}
+
+.form-box {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 30rpx;
+  border-radius: 15rpx;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 21rpx 0;
+}
+
+.label {
+  font-size: 40rpx;
+  color: #000000;
+}
+
+.destination, .coalVar, .cost {
+  font-size: 45rpx;
+  color: #000000;
+  font-weight: medium;
+}
+
+.input {
+  font-size: 40rpx;
+  flex-grow: 1;
+  height: 60rpx;
+  margin-left: 10rpx;
+  padding: 0 10rpx;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.input:focus {
+  border: 2px solid #000000;
+  border-radius: 10rpx;
+}

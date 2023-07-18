@@ -1,0 +1,88 @@
+/* 全局样式 */
+page {
+  font-family: Arial, sans-serif;
+  background-color: #F2F2F2;
+}
+
+/* 标题样式 */
+.title {
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  margin: 20px 0;
+}
+
+/* 信息部分样式 */
+.msg {
+  padding: 10px;
+  color: rgb(0, 0, 0);
+}
+
+/* 主体内容样式 */
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+/* 表格样式 */
+.table {
+  width: 100%;
+}
+
+.tr {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(139, 139, 139);
+  padding: 10px 0;
+}
+
+.th, .td {
+  width: 25%;
+  text-align: center;
+  font-size: 16px;
+}
+
+.th {
+  font-weight: bold;
+  color: #333;
+}
+
+.td {
+  color: rgb(17, 17, 17);
+}
+
+.button-hover {
+  background-color: #0D8F12 !important;
+}
+.empty-order{
+  display: absolute;
+}
+.info{
+  font-size: 50rpx;
+}
+.cipher-search{
+  display: flex;
+  align-items: center;
+}
+.cipher-input {
+  font-size: 40rpx;
+  flex-grow: 1;
+  height: 80rpx;
+  padding: 0 10rpx;
+  border: rgb(50, 70, 125) solid 2px;
+  border-radius: 15rpx;
+}
+.cipher-button{
+  border: rgb(50, 70, 125) solid 2px;
+  border-radius: 15rpx;
+  
+}

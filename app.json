@@ -1,35 +1,33 @@
 {
-  "pages":[
-    "pages/home/home",
-    "pages/index/index",
-    "pages/logs/logs"
+  "pages": [
+    "pages/coalMsg/coalMsg",
+    "pages/userMsg/userMsg",
+    "pages/checkInfo/checkInfo",
+    "pages/userPay/userPay"
   ],
-  "window":{
+  "window": {
     "backgroundColor": "#efefef",
-    "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "煤矿出车服务平台",
-    "navigationBarTextStyle":"black",
+    "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true,
     "onReachBottomDistance": 50
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/home/home",
-      "text": "抢单",
-      "iconPath": "./static/icon/truck_icon.png",
-      "selectedIconPath": "./static/icon/truck_icon.png"
-    },{
-      "pagePath": "pages/index/index",
-      "text": "二维码",
-      "iconPath": "./static/icon/qr_code_icon.png",
-      "selectedIconPath": "./static/icon/qr_code_icon.png"
-    },{
-      "pagePath": "pages/logs/logs",
-      "text": "我的",
-      "iconPath": "./static/icon/list_icon.png",
-      "selectedIconPath": "./static/icon/list_icon.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/coalMsg/coalMsg",
+        "text": "抢单",
+        "iconPath": "./static/icon/coalMsg.png",
+        "selectedIconPath": "./static/icon/selectedCoalMsg.png"
+      },
+      {
+        "pagePath": "pages/userMsg/userMsg",
+        "text": "订单",
+        "iconPath": "./static/icon/checklist.png",
+        "selectedIconPath": "./static/icon/selectedChecklist.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
