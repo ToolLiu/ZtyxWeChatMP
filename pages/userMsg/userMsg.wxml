@@ -18,5 +18,9 @@
       <button class="btn" style="margin: 5px 0px; padding: 10px;" bindtap="showQRCode" data-coal_orders="{{item}}">运费码</button>
       <button class="btn" style="margin: 5px 0px; padding: 10px;" bindtap="coalOrderComplete" data-coal_orders="{{item}}">完成订单</button>
     </view>
+    <view class="location" catchtap="position">
+      <image src="../../static/icon/location.png" mode="" class="location-img"/>
+      <view class="location-msg">定位</view>
+    </view>
   </view>
 </view>

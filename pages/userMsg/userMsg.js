@@ -1,4 +1,6 @@
-// pages/userMsg/userMsg.js
+// 引入SDK核心类
+var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
+var qqmapsdk;
 Page({
 
   data: {
@@ -152,6 +154,20 @@ Page({
     })
   },
 
+  position(){
+    qqmapsdk.reverseGeocoder({
+      success: function (res) {
+          console.log(res);
+      },
+      fail: function (res) {
+          console.log(res);
+      },
+      complete: function (res) {
+          console.log(res);
+      }
+    });
+  },
+
   loadData(){
     wx.showNavigationBarLoading();
     const app = getApp()
@@ -182,6 +198,9 @@ Page({
         wx.stopPullDownRefresh();
       }
     })
+    qqmapsdk = new QQMapWX({
+        key: '4RXBZ-J72RU-6GOVE-GMNUS-5PS7S-NRFKB'
+    });
   },
   
   onLoad(options) {
