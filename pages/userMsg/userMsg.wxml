@@ -24,3 +24,9 @@
     </view>
   </view>
 </view>
+
+<view class="mapContainer" wx:if="{{showMap}}">
+  <map class="map" longitude="{{poi.longitude}}" latitude="{{poi.latitude}}" markers="{{markers}}" show-compass="true" circles="{{circles}}"/>
+  <button class="mapBtn" bindtap="closeMap">关闭</button>
+  <button class="mapBtn">打卡</button>
+</view>

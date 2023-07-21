@@ -7,7 +7,9 @@ Page({
     coalOrders:'',
     coalOrderId: '',  // 煤炭订单ID
     imageType: '',    // 图片类型，可能是 'freightRateList' 或 'weighing_list'
-    imageFilePath: '' // 图片文件路径
+    imageFilePath: '', // 图片文件路径
+    address: '',
+    showMap: false,
   },
 
   uploadImage(e) {
@@ -155,17 +157,66 @@ Page({
   },
 
   position(){
+    let that = this
     qqmapsdk.reverseGeocoder({
       success: function (res) {
-          console.log(res);
+          that.address = res.result.address;
+          that.getCoordinate(that.address)
       },
       fail: function (res) {
           console.log(res);
       },
-      complete: function (res) {
-          console.log(res);
-      }
     });
+  },
+  getCoordinate(address){
+    let that = this
+    qqmapsdk.geocoder({
+      address: address,
+      success: function(res) {
+        var res = res.result;
+        var latitude = res.location.lat;
+        var longitude = res.location.lng;
+        that.setData({ // 获取返回结果，放到markers及poi中，并在地图展示
+          markers: [{
+            id: 0,
+            title: res.title,
+            latitude: latitude,
+            longitude: longitude,
+            iconPath: '../../static/icon/placeholder.png',
+            width: 20,
+            height: 20,
+            callout: { //可根据需求是否展示经纬度
+              content: "您的位置",
+              color: '#000',
+              bgColor: 'none',
+              display: 'ALWAYS',
+              textAlign: 'center'
+            }
+          }],
+          circles: [{
+            latitude: latitude,
+            longitude: longitude,
+            color: "#3FA1B0",
+            fillColor: '#7cb5ec88',
+            radius: 80
+          }],
+          poi: {
+            latitude: latitude,
+            longitude: longitude
+          },
+          showMap:true
+        });
+      },
+      fail: function(error) {
+        console.error(error);
+      },
+    })
+  },
+  closeMap(){
+    let that = this;
+    that.setData({
+      showMap:false
+    })
   },
 
   loadData(){
