@@ -1,6 +1,3 @@
-// 引入SDK核心类
-var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
-var qqmapsdk;
 Page({
 
   data: {
@@ -10,6 +7,9 @@ Page({
     imageFilePath: '', // 图片文件路径
     address: '',
     showMap: false,
+    myLat: '',
+    myLng: '',
+    position: '',
   },
 
   uploadImage(e) {
@@ -156,66 +156,89 @@ Page({
     })
   },
 
-  position(){
+  position(e){
     let that = this
-    qqmapsdk.reverseGeocoder({
-      success: function (res) {
-          that.address = res.result.address;
-          that.getCoordinate(that.address)
-      },
-      fail: function (res) {
-          console.log(res);
-      },
-    });
-  },
-  getCoordinate(address){
-    let that = this
-    qqmapsdk.geocoder({
-      address: address,
-      success: function(res) {
-        var res = res.result;
-        var latitude = res.location.lat;
-        var longitude = res.location.lng;
-        that.setData({ // 获取返回结果，放到markers及poi中，并在地图展示
-          markers: [{
-            id: 0,
-            title: res.title,
-            latitude: latitude,
-            longitude: longitude,
-            iconPath: '../../static/icon/placeholder.png',
-            width: 20,
-            height: 20,
-            callout: { //可根据需求是否展示经纬度
-              content: "您的位置",
-              color: '#000',
-              bgColor: 'none',
-              display: 'ALWAYS',
-              textAlign: 'center'
-            }
-          }],
-          circles: [{
-            latitude: latitude,
-            longitude: longitude,
-            color: "#3FA1B0",
-            fillColor: '#7cb5ec88',
-            radius: 80
-          }],
-          poi: {
-            latitude: latitude,
-            longitude: longitude
-          },
-          showMap:true
-        });
-      },
-      fail: function(error) {
-        console.error(error);
-      },
+    let position = e.currentTarget.dataset.coal_orders.position;
+    // console.log(e.currentTarget.dataset.coal_orders);
+    let coal_order_id = e.currentTarget.dataset.coal_orders.coal_order_id
+    that.mapCtx.moveToLocation()
+    that.setData({
+      showMap: true,
+      position: position,
+      coalOrderId: coal_order_id,
     })
   },
   closeMap(){
     let that = this;
     that.setData({
       showMap:false
+    })
+  },
+
+  // 计算两个经纬度之间的距离
+  distance(myLocation, location) {
+    let myPositionArr = myLocation.split(',');
+    let positionArr = location.split(',');
+    var La1 = Number(myPositionArr[0]) * Math.PI / 180.0;
+    var La2 = Number(positionArr[0]) * Math.PI / 180.0;
+    var La3 = La1 - La2;
+    var Lb3 = Number(myPositionArr[1]) * Math.PI / 180.0 - Number(positionArr[1]) * Math.PI / 180.0;
+    var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(La3 / 2), 2) + Math.cos(La1) * Math.cos(La2) * Math.pow(Math.sin(Lb3 / 2), 2)));
+    s = s * 6378.137; //地球半径
+    s = Math.round(s * 10000) / 10000;
+    // console.log("计算结果",s)
+    return s
+  },
+
+  checkIn(){
+    let app = getApp();
+    let that = this
+    let position = that.data.position;
+    that.mapCtx.getCenterLocation({
+      success: function(res){
+        that.setData({
+          myLat: res.latitude.toFixed(6),
+          myLng: res.longitude.toFixed(6),
+        })
+      },
+      fail: (err) => { console.log(err); },
+      complete: () => {
+        let myLocation = this.data.myLat + ',' + this.data.myLng;
+        let space = that.distance(myLocation, position);
+        console.log(space);
+        let message = '';
+        if (space <= 0.2) {
+          wx.request({
+            method: 'POST',
+            timeout:'5000',
+            url: `${app.data.url}/coal/setIfCheckin`,
+            data:{
+              coal_order_id: that.data.coalOrderId
+            },
+            success:  (res)=> {
+              message = "打卡成功";
+              that.setData({
+                showMap:false
+              })
+            },
+            fail:  (err)=> { message = "打卡发生错误：" + err; },
+            complete: () => {
+              wx.showModal({
+                title: '提示',
+                content: message,
+                showCancel: false
+              });
+            }
+          })
+        } else {
+          message = "未在打卡范围，请更新位置重试";
+          wx.showModal({
+            title: '提示',
+            content: message,
+            showCancel: false
+          });
+        }
+      }
     })
   },
 
@@ -249,9 +272,6 @@ Page({
         wx.stopPullDownRefresh();
       }
     })
-    qqmapsdk = new QQMapWX({
-        key: '4RXBZ-J72RU-6GOVE-GMNUS-5PS7S-NRFKB'
-    });
   },
   
   onLoad(options) {
@@ -262,7 +282,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    this.mapCtx = wx.createMapContext('checkInMap')
   },
 
   /**
