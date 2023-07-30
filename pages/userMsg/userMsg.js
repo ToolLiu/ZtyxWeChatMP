@@ -157,15 +157,23 @@ Page({
   },
 
   position(e){
+    let app = getApp();
     let that = this
     let position = e.currentTarget.dataset.coal_orders.position;
-    // console.log(e.currentTarget.dataset.coal_orders);
+    let latLng = position.split(',');
     let coal_order_id = e.currentTarget.dataset.coal_orders.coal_order_id
     that.mapCtx.moveToLocation()
     that.setData({
       showMap: true,
       position: position,
       coalOrderId: coal_order_id,
+      markers: [{
+        latitude:latLng[0],
+        longitude:latLng[1],
+        iconPath:"../../static/icon/placeholder.png",
+        width: 40,
+        height: 40,
+      }]
     })
   },
   closeMap(){

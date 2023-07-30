@@ -36,6 +36,7 @@
       show-location 
       enable-scroll="{{false}}" 
       enable-zoom="{{false}}"
+      markers="{{ markers }}"
     ></map>
   <button class="mapBtn" bindtap="closeMap">关闭</button>
   <button class="mapBtn" bindtap="checkIn">打卡</button>
