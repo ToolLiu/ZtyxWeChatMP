@@ -1,8 +1,8 @@
 // app.js小程序入口文件
 App({
   data: {
-    url:'https://www.crr11.cn/api',
-    // url: 'http://127.0.0.1:8121',
+    // url:'https://www.crr11.cn/api',
+    url: 'http://127.0.0.1:8121',
   },
   globalData:{
     openid:''
