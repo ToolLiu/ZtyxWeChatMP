@@ -114,7 +114,7 @@ Page({
       }
     })
   },
-
+  // 完成订单
   coalOrderComplete(e){
     const that = this
     const app = getApp()
@@ -213,39 +213,38 @@ Page({
       complete: () => {
         let myLocation = this.data.myLat + ',' + this.data.myLng;
         let space = that.distance(myLocation, position);
-        console.log(space);
+        // console.log(space);  //  距离定位点的直线距离（KM）
         let message = '';
-        if (space <= 0.2) {
-          wx.request({
-            method: 'POST',
-            timeout:'5000',
-            url: `${app.data.url}/coal/setIfCheckin`,
-            data:{
-              coal_order_id: that.data.coalOrderId
-            },
-            success:  (res)=> {
-              message = "打卡成功";
-              that.setData({
-                showMap:false
-              })
-            },
-            fail:  (err)=> { message = "打卡发生错误：" + err; },
-            complete: () => {
-              wx.showModal({
-                title: '提示',
-                content: message,
-                showCancel: false
-              });
-            }
-          })
+        let status = 0
+        if (space <= 0.3) {
+          message = "打卡成功"
+          status = 1
         } else {
-          message = "未在打卡范围，请更新位置重试";
-          wx.showModal({
-            title: '提示',
-            content: message,
-            showCancel: false
-          });
+          message = "未在打卡范围，请更新位置后重试";
+          status = 2
         }
+        wx.request({
+          method: 'POST',
+          timeout:'5000',
+          url: `${app.data.url}/coal/setIfCheckin`,
+          data:{
+            coal_order_id: that.data.coalOrderId,
+            status: status
+          },
+          success:  (res)=> {
+            that.setData({
+              showMap:false
+            })
+          },
+          fail:  (err)=> { message = "打卡发生错误，请检查网络环境：" + err; },
+          complete: () => {
+            wx.showModal({
+              title: '提示',
+              content: message,
+              showCancel: false
+            });
+          }
+        })
       }
     })
   },

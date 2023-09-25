@@ -13,7 +13,6 @@
     </view>
     <view class="orderTime">下单时间：{{item.order_time}}</view>
     <view class="buttonContainer">
-      <button class="btn" style="margin: 5px 0px; padding: 10px;" bindtap="uploadImage" data-imageType="weighingList" data-coal_order_id="{{item.coal_order_id}}">上传磅单</button>
       <button class="btn" style="margin: 5px 0px; padding: 10px;" bindtap="uploadImage" data-imageType="freightRateList" data-coal_order_id="{{item.coal_order_id}}">上传运费单</button>
       <button class="btn" style="margin: 5px 0px; padding: 10px;" bindtap="showQRCode" data-coal_orders="{{item}}">运费码</button>
       <button class="btn" style="margin: 5px 0px; padding: 10px;" bindtap="coalOrderComplete" data-coal_orders="{{item}}">完成订单</button>
