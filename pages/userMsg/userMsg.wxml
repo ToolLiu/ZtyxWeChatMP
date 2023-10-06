@@ -1,6 +1,4 @@
 <!--pages/userMsg/userMsg.wxml-->
-<view class="title">我的订单</view>
-
 <view class='mainContainer'>
   <view class="container" wx:for="{{coalOrders}}" wx:key="coal_order_id">
     <view class="coalInfoRow">

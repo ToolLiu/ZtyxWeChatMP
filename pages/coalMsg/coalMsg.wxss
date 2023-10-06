@@ -1,7 +1,7 @@
 /* 全局样式 */
 page {
   font-family: Arial, sans-serif;
-  background-color: #F2F2F2;
+  background-color: #f7f7f7;
 }
 
 /* 标题样式 */
@@ -19,10 +19,13 @@ page {
 }
 
 /* 主体内容样式 */
-.mainContainer {
+.main-container {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .container {
@@ -61,28 +64,69 @@ page {
 }
 
 .button-hover {
-  background-color: #0D8F12 !important;
+  background-color: #0e3d9b !important;
 }
 .empty-order{
-  display: absolute;
+  box-sizing: border-box;
+  margin-top: 13rpx;
+  padding-top: 26rpx;
+  width: 100%;
+  height: 210rpx;
+  background-color: #fff;
 }
 .info{
-  font-size: 50rpx;
+  margin-left: 70rpx;
+  margin-top: 50rpx;
+  font-size: 35rpx;
+  color: #777;
 }
 .cipher-search{
+  box-sizing: border-box;
   display: flex;
   align-items: center;
+  justify-content: center;
+  height: 90rpx;
+  width: 100%;
+  margin: 20rpx;
+  padding: 0 60rpx;
+  background-color: #fff;
 }
 .cipher-input {
-  font-size: 40rpx;
+  font-size: 30rpx;
   flex-grow: 1;
-  height: 80rpx;
-  padding: 0 10rpx;
+  height: 50rpx;
+  padding: 0 20rpx;
   border: rgb(50, 70, 125) solid 2px;
-  border-radius: 15rpx;
+  border-radius: 50rpx;
 }
 .cipher-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
   border: rgb(50, 70, 125) solid 2px;
-  border-radius: 15rpx;
-  
+  border-radius: 20rpx;
+  height: 50rpx; 
+  width: 120rpx; 
+  margin-left: 25rpx;
+}
+.notice-container{
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 200rpx;
+  background-color: #fff;
+  padding: 15rpx 30rpx;
+}
+.notice-title{
+  text-align: center;
+  height: 50rpx;
+  font-size: 35rpx;
+  font-weight: 1000;
+  /* background-color: rgb(190, 190, 190); */
+}
+.notice-content{
+  font-size: 30rpx;
+  color: #555;
 }

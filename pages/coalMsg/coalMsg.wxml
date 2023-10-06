@@ -1,9 +1,17 @@
 <!--pages/home/home.wxml-->
-<view class="title">今日剩余提煤单量详情</view>
-<view class='mainContainer'>
+<!-- <view class="title">今日剩余提煤单量详情</view> -->
+<view class='main-container'>
   <view class="cipher-search">
     <input class="cipher-input" type="text" name="u_name" placeholder="请输入验证信息" bindinput="cipherInput" value="{{cipherVal}}"/>
-    <button class="cipher-button" style="width: 180rpx; margin-left: 25rpx;" bindtap="searchByCipher">查询</button>
+    <view class="cipher-button" bindtap="searchByCipher"><view>查询</view></view>
+  </view>
+  <view class="notice-container">
+    <view class="notice-title">
+      公告
+    </view>
+    <view class="notice-content">
+      下单、运货前请核对好地址，以免为您和管理人员带来不便，谢谢合作。祝各位用户云程万里，一路平安。
+    </view>
   </view>
   <view class="container" wx:for="{{coalMsg}}" wx:key="coal_id">
     <view class="table">
@@ -36,7 +44,7 @@
         </view>
       </view>
     </view>
-    <button style="background-color: #39ac39; color: #fff; text-align: center; padding: 10px 0; margin-top: 10px; border-radius: 5px; width: 100%;" bindtap="placeOrder" hover-class="button-hover" data-coalmsg="{{item}}" plain>立即抢单</button>
+    <button style="background-color: #1a56ce; color: #fff; text-align: center; padding: 10px 0; margin-top: 10px; border-radius: 5px; width: 100%;" bindtap="placeOrder" hover-class="button-hover" data-coalmsg="{{item}}" plain>立即抢单</button>
   </view>
   <view class="empty-order" wx:if="{{showEmptyOrder}}">
     <text class="info">暂无余单，请耐心等待。</text>

@@ -7,9 +7,9 @@
   ],
   "window": {
     "backgroundColor": "#efefef",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "煤矿出车服务平台",
-    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#154bbb",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true,
     "onReachBottomDistance": 50
   },
