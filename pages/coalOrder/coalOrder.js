@@ -119,6 +119,7 @@ Page({
     const that = this
     const app = getApp()
     let coal_order_id = e.target.dataset.coal_orders.coal_order_id
+    console.log(coal_order_id);
     wx.request({
       method: 'POST',
       timeout:'5000',
@@ -127,6 +128,7 @@ Page({
         coal_order_id:coal_order_id
       },
       success:  (res)=> {
+        console.log(res);
         if (res.data.length == 2) {
           let message = res.data[0][0].Message;
           wx.showModal({

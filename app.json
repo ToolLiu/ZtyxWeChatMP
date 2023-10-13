@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/coalMsg/coalMsg",
-    "pages/userMsg/userMsg",
+    "pages/coalOrder/coalOrder",
     "pages/checkInfo/checkInfo",
     "pages/userPay/userPay"
   ],
   "window": {
     "backgroundColor": "#efefef",
-    "navigationBarBackgroundColor": "#154bbb",
+    "navigationBarBackgroundColor": "#374DA7",
     "navigationBarTitleText": "",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true,
@@ -18,14 +18,14 @@
       {
         "pagePath": "pages/coalMsg/coalMsg",
         "text": "抢单",
-        "iconPath": "./static/icon/coalMsg.png",
-        "selectedIconPath": "./static/icon/selectedCoalMsg.png"
+        "iconPath": "./static/icon/take-order.png",
+        "selectedIconPath": "./static/icon/take-order-selected.png"
       },
       {
-        "pagePath": "pages/userMsg/userMsg",
+        "pagePath": "pages/coalOrder/coalOrder",
         "text": "订单",
-        "iconPath": "./static/icon/checklist.png",
-        "selectedIconPath": "./static/icon/selectedChecklist.png"
+        "iconPath": "./static/icon/orders.png",
+        "selectedIconPath": "./static/icon/orders-checked.png"
       }
     ]
   },

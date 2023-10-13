@@ -11,31 +11,70 @@
   align-items: flex-start;
 }
 
-.mainContainer {
+.main-container {
   padding: 10px;
   background-color: #f9f9f9;
 }
 
-.container {
-  position:relative;
+.order-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
   margin-bottom: 13px;
-  padding: 20px;
+  padding: 15px 20px;
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
 }
 
-.destination, .coalVar, .name, .plate, .orderTime {
+.destination, .coalVar, .name, .plate {
   margin-bottom: 10px;
   font-size: 30rpx;
   color: #333;
 }
-
-.destination, .coalVar {
-  font-size: 18px;
-  font-weight: bold;
+.coal-info-row{
+  display: flex;
+  flex-direction: column;
 }
-
+.destination-container{
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  padding: 5rpx 0;
+  /* border-top: #d39309 solid 2rpx; */
+  border-bottom: #374DA7 solid 2rpx;
+}
+.order-destination-img{
+  width: 60rpx;
+  height: 60rpx;
+}
+.order-destination-text{
+  font-size: 50rpx;
+  padding-bottom: 10rpx;
+  margin-left: 15rpx;
+}
+.coal-var-container{
+  display: flex;
+  align-items: center;
+  padding-top: 10rpx;
+}
+.coal-var {
+  text-align: center;
+  /* display: inline-block; */
+  font-size: 15px;
+  width: 180rpx;
+  height: 42rpx;
+  color: rgb(0, 58, 134);
+  /* border: rgb(33, 124, 243) solid 2rpx; */
+  background-color: rgb(215, 240, 255);
+  border-radius: 18rpx;
+  padding: 2rpx 15rpx;
+}
+.order-time{
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: #666;
+}
 .btn {
   background-color: #154bbb;
   color: #ffffff;
@@ -53,6 +92,7 @@
   border: solid 4rpx rgb(0, 0, 0);
   border-radius: 15rpx;
   padding: 5rpx 10rpx;
+  /* display: none; */
  }
  .location-img{
   width: 70rpx;
