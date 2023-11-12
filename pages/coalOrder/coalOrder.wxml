@@ -4,27 +4,56 @@
     <view class="coal-info-row">
       <view class="destination-container">
         <view>
-        <image src="../../static/icon/coal-order-package.png" class="order-destination-img" mode=""/>
+          <image src="../../static/icon/coal-order-package.png" class="order-destination-img" mode=""/>
         </view>
-        <view class="order-destination-text">{{item.destination}}</view>
+        <view class="order-destination-text" bindtap="showQRCode" data-coal_orders="{{item}}">{{item.destination}}</view>
+        <view>
+          <image src="../../static/icon/qr-code-icon.png" 
+          class="qr-code-img" 
+          mode="" 
+          bindtap="showQRCode" 
+          data-coal_orders="{{item}}"/>
+        </view>
       </view>
       <view class="coal-var-container">
         <view class="coal-var">{{item.coal_var}}</view>
-        <view class="order-time">下单时间：{{item.order_time}}</view>
+        <view class="order-time">{{item.order_time}}</view>
+      </view>
+      <view class="user-info-row">
+        <view class="name-container">
+          <image src="../../static/icon/user.png" class="name-icon" mode=""/>
+          <view class="name-text">{{item.u_name}}</view>
+        </view>
+        <view class="license-plate-container">
+          <image src="../../static/icon/license-plate-icon.png" class="license-plate-icon" mode=""/>
+          <view>{{item.u_license_plate}}</view>
+        </view>
       </view>
     </view>
-    <view class="userInfoRow">
-      <view class="name">姓名：{{item.u_name}}</view>
-      <view class="plate">车牌号：{{item.u_license_plate}}</view>
-    </view>
-    <view class="buttonContainer">
-      <button class="btn" style="margin: 5px 0px; padding: 10px;" bindtap="uploadImage" data-imageType="freightRateList" data-coal_order_id="{{item.coal_order_id}}">上传运费单</button>
-      <button class="btn" style="margin: 5px 0px; padding: 10px;" bindtap="showQRCode" data-coal_orders="{{item}}">运费码</button>
-      <button class="btn" style="margin: 5px 0px; padding: 10px;" bindtap="coalOrderComplete" data-coal_orders="{{item}}">完成订单</button>
-    </view>
-    <view class="location" bindtap="position" data-coal_orders="{{item}}">
-      <image src="../../static/icon/location.png" mode="" class="location-img"/>
-      <view class="location-msg">定位</view>
+    <view class="order-button-container">
+      <view class="operate-container">
+        <view class="freight-rate-btn" 
+        bindtap="uploadImage" 
+        data-imageType="freightRateList" 
+        data-coal_order_id="{{item.coal_order_id}}">
+          <image src="../../static/icon/freight-rate-icon.png" class="freight-rate-icon" />
+          <view class="freight-rate-text">上传运费单</view>
+        </view>
+        <view class="check-in-btn"  
+        bindtap="position" 
+        data-coal_orders="{{item}}">
+          <image src="../../static/icon/check-in-icon.png" class="check-in-icon" data-coal_orders="{{item}}"/>
+          <view class="check-in-text" data-coal_orders="{{item}}">打 卡</view>
+        </view>
+      </view>
+      <view class="confirm-btn-container" bindtap="coalOrderComplete" data-coal_orders="{{item}}">
+        <view class="confirm-btn" data-coal_orders="{{item}}">完 成</view>
+        <!-- <button class="btn" style="margin: 5px 0px; padding: 10px;" bindtap="coalOrderComplete" data-coal_orders="{{item}}">完成订单</button> -->
+      </view>
+      <!-- <view class="location" bindtap="position" data-coal_orders="{{item}}">
+        <image src="../../static/icon/location.png" mode="" class="location-img"/>
+        <view class="location-msg">定位</view>
+      </view> -->
     </view>
   </view>
 </view>

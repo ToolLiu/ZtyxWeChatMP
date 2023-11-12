@@ -1,3 +1,4 @@
+var dayjs = require('dayjs')
 Page({
 
   data: {
@@ -71,12 +72,7 @@ Page({
   },
 
   formatDateTime(datetime) {  //  将订单信息的日期改为可读形式
-    let date = new Date(datetime);
-    let month = date.getMonth() + 1;
-    let day = date.getDate();
-    let hour = date.getHours();
-    let minute = date.getMinutes();
-    return `${month}-${day} ${hour}:${minute}`;
+    return dayjs(datetime).format('YYYY/MM/DD HH:mm')
   },
 
   showQRCode(e){
@@ -119,7 +115,6 @@ Page({
     const that = this
     const app = getApp()
     let coal_order_id = e.target.dataset.coal_orders.coal_order_id
-    console.log(coal_order_id);
     wx.request({
       method: 'POST',
       timeout:'5000',
@@ -128,7 +123,6 @@ Page({
         coal_order_id:coal_order_id
       },
       success:  (res)=> {
-        console.log(res);
         if (res.data.length == 2) {
           let message = res.data[0][0].Message;
           wx.showModal({

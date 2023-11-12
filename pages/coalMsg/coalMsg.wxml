@@ -10,7 +10,7 @@
       公告
     </view>
     <view class="notice-content">
-      下单、运货前请核对好地址，以免为您和管理人员带来不便，谢谢合作。祝各位用户云程万里，一路平安。
+      {{ noticeText }}
     </view>
   </view>
   <view class="container" wx:for="{{coalMsg}}" wx:key="coal_id">

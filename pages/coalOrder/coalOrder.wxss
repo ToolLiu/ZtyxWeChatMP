@@ -43,20 +43,21 @@
   padding: 5rpx 0;
   /* border-top: #d39309 solid 2rpx; */
   border-bottom: #374DA7 solid 2rpx;
+  gap: 15rpx;
 }
-.order-destination-img{
+.order-destination-img, .qr-code-img{
   width: 60rpx;
   height: 60rpx;
 }
 .order-destination-text{
   font-size: 50rpx;
   padding-bottom: 10rpx;
-  margin-left: 15rpx;
 }
 .coal-var-container{
   display: flex;
   align-items: center;
-  padding-top: 10rpx;
+  justify-content: space-between;
+  padding-top: 13rpx;
 }
 .coal-var {
   text-align: center;
@@ -75,52 +76,107 @@
   font-size: 28rpx;
   color: #666;
 }
-.btn {
-  background-color: #154bbb;
-  color: #ffffff;
-  border-radius: 10px;
-  border: #000000 solid 1px;
-}
-
- .buttonContainer {
-  margin-left: 23%;
- }
- .location{
-  position: absolute;
-  left: 450rpx;
-  top: 50rpx;
-  border: solid 4rpx rgb(0, 0, 0);
-  border-radius: 15rpx;
-  padding: 5rpx 10rpx;
-  /* display: none; */
- }
- .location-img{
-  width: 70rpx;
-  height: 70rpx;
- }
- .location-msg{
-  margin-top: 10rpx;
-  float: right;
-  margin: 10rpx;
-  font-size: 40rpx;
-  line-height: 50rpx;
- }
- .mapContainer{
-  position: fixed;
-  top: 0;
-  left: 0;
+.user-info-row{
   display: flex;
-  flex-direction: column;   /* 一行一个view */
+  flex-direction: column;
+  padding-top: 15rpx;
+  gap: 15rpx;
+}
+.name-container, .license-plate-container{
+  display: flex;
+  align-items: center;
+  height: 45rpx;
+  gap: 15rpx;
+}
+.name-icon, .license-plate-icon{
+  width: 30rpx;
+  height: 30rpx;
+}
+.order-button-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10rpx;
+}
+.operate-container{
+  display: flex;
+  justify-content: center;
+  gap: 30rpx;
+}
+.freight-rate-btn, .check-in-btn{
+  display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;   /* 确保 .mapContainer 占满可用空间 */
-  width: 100%;
-  background-color: rgba(172, 172, 172, 0.9);
- }
- .map{
-  width: 100%;
-  height: 50%;
- }
- .mapBtn{
-   margin-top: 10rpx;
- }
+  height: 66rpx;
+  width: 280rpx;
+  border: #1445cc solid 5rpx;
+  background-color: rgb(110, 146, 243);
+  border-radius: 10rpx;
+}
+.freight-rate-icon, .check-in-icon{
+  height: 41rpx;
+  width: 41rpx;
+}
+.freight-rate-text, .check-in-text{
+  font-size: 35rpx;
+  color: #333;
+  font-weight: bold;
+}
+.confirm-btn-container{
+  margin-top: 25rpx;
+  display: flex;
+  justify-content: center;
+  border-top: #888 solid 2rpx;
+  background-color: #eee;
+  border-radius: 0 0 15rpx 15rpx;
+}
+.confirm-btn-container:active{
+  background-color: #ccc;
+}
+.confirm-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70rpx;
+  width: 120rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.location{
+position: absolute;
+left: 450rpx;
+top: 50rpx;
+border: solid 4rpx rgb(0, 0, 0);
+border-radius: 15rpx;
+padding: 5rpx 10rpx;
+display: none;
+}
+.location-img{
+width: 70rpx;
+height: 70rpx;
+}
+.location-msg{
+margin-top: 10rpx;
+float: right;
+margin: 10rpx;
+font-size: 40rpx;
+line-height: 50rpx;
+}
+.mapContainer{
+position: fixed;
+top: 0;
+left: 0;
+display: flex;
+flex-direction: column;   /* 一行一个view */
+align-items: center;
+justify-content: center;
+height: 100%;   /* 确保 .mapContainer 占满可用空间 */
+width: 100%;
+background-color: rgba(172, 172, 172, 0.9);
+}
+.map{
+width: 100%;
+height: 50%;
+}
+.mapBtn{
+  margin-top: 10rpx;
+}
